@@ -84,17 +84,6 @@ const getSlackParts = (build) => {
   let repositoryUrl = `https://console.cloud.google.com/code/develop/browse/${repoName}`;
   let commitUrl = `${repositoryUrl}/${commitSha}`;
 
-  if (repoName.indexOf('github-') === 0) {
-    const repoNameParts = repoName.split('-');
-    repoNameParts.shift();
-
-    const organization = repoNameParts.shift();
-
-    repository = repoNameParts.join('-');
-    repositoryUrl = `https://github.com/${organization}/${repository}`;
-    commitUrl = `${repositoryUrl}/commit/${commitSha}`;
-  }
-
   return {
     repository,
     branchName,
